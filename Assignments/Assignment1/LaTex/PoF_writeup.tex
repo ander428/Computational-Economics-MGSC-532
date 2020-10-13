@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{%
+  Probability of a Flush \\
+  \large Computational Economics - MGSC 532}
+\author{Joshua Anderson}
+
+\maketitle
+
+\begin{*}
+    Here is the calculation of the probability of a flush in
+    the game of poker:
+\end{*}
+
+\begin{equation}
+    P(every flush) = 
+    \dfrac{
+        \begin{pmatrix}13 \\ 5\end{pmatrix}
+        \begin{pmatrix}4 \\ 1\end{pmatrix}
+    }{
+        \begin{pmatrix}52 \\ 5\end{pmatrix}
+    }
+    =
+    \dfrac{
+        \dfrac{13!}{5!(13-5)!}\times\dfrac{4!}{1!(4-1)!}
+    }{
+        \dfrac{52!}{5!(52-5)!}
+    }
+    =
+    \dfrac{1287\times4}{2598960}
+    =
+    0.00198
+\end{equation}
+
+\begin{equation}
+    P(straight flush) = 
+    \dfrac{
+        \begin{pmatrix}9 \\ 1\end{pmatrix}
+        \begin{pmatrix}4 \\ 1\end{pmatrix}
+    }{
+        \begin{pmatrix}52 \\ 5\end{pmatrix}
+    }
+    =
+    \dfrac{
+        \dfrac{9!}{1!(9-1)!}\times\dfrac{4!}{1!(4-1)!}
+    }{
+        \dfrac{52!}{5!(52-5)!}
+    }
+    =
+    \dfrac{9\times4}{2598960}
+    =
+    1.385e^{-5}
+\end{equation}
+
+\begin{equation}
+    P(royal flush) = 
+    \dfrac{
+        \begin{pmatrix}4 \\ 1\end{pmatrix}
+    }{
+        \begin{pmatrix}52 \\ 5\end{pmatrix}
+    }
+    =
+    \dfrac{\dfrac{4!}{1!(4-1)!}}{\dfrac{52!}{5!(52-5)!}}
+    =
+    \dfrac{4}{2598960}
+    =
+    1.539e^{-6}
+\end{equation}
+
+\begin{equation}
+    P(flush) = P(every flush) - P(straight flush) - P(royal flush)
+\end{equation}
+
+\begin{equation}
+    P(flush) = 0.00198 - 1.385e^{-5} - 1.539e^{-6} = 0.001964611
+\end{equation}
+\newline
+
+\begin{center}
+The probability of a flush in a hand of poker is about 0.196\%.
+\end{center}
+\end{document}
